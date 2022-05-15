@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Online Payment</title>
+</head>
+<body>
+<!--Header!!-->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/home">ONLINE  LIBRARY</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+      <ul class="navbar-nav m-auto">
+        <li class="nav-item m-auto">
+          <a class="nav-link active" href="/home">ПОЧЕТНА</a>
+        </li>
+        <li class="nav-item m-auto">
+          <a class="nav-link active" href="info.html">ИНФОРМАЦИИ</a>
+        </li>
+        <li class="nav-item m-auto">
+          <a class="nav-link active" href="guide.html">УПАТСТВО</a>
+        </li>
+        <li class="nav-item m-auto">
+          <a class="nav-link active" href="listBooks.html">ЛИСТА НА КНИГИ</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="jumbotron text-center">
+  <div class="container">
+    <form class="form-signin mt-xl-2 col-md-6" method="post" action="/paymentOnline">
+      <h2 class="form-signin-heading">Онлајн плаќање</h2>
+      <br>
+      <p>
+        <label for="name" class="sr-only">Име и презиме:</label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="Name" required="" autofocus="">
+      </p>
+      <p>
+        <label for="surname" class="sr-only">Број на картичка:</label>
+        <input type="text" id="surname" name="surname" class="form-control" placeholder="Surname" required="" autofocus="">
+      </p>
+      <p>
+        <label for="birth" class="sr-only">Рок на важност:</label>
+        <input type="date" id="birth" name="birth" class="form-control" placeholder="Birth" required="" autofocus="">
+      </p>
+      <p>
+        <label for="cvc" class="sr-only">CVV2/CVC2:</label>
+        <input type="text" id="cvc" name="cvc" class="form-control" placeholder="Cvc" required="" autofocus="">
+      </p>
+      <p>
+        <label for="address" class="sr-only">Износ:</label>
+        <input type="text" id="address" name="address" class="form-control" placeholder="Address" required="" autofocus="">
+      </p>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Потврди</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Откажи</button>
+      <br>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-black-50 mt-xl-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-lg-1 col-xl-5">
+        <h5>Contact</h5>
+        <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+        <ul class="list-unstyled">
+          <li><i class="fa fa-envelope mr-2"></i>onlinelibrary@library.com</li>
+          <li><i class="fa fa-phone mr-2"></i> + 33 12 14 15 16</li>
+          <li><i class="fa fa-print mr-2"></i> + 33 12 14 15 16</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

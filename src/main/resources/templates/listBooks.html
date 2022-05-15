@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Books in Library</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/home">ONLINE  LIBRARY</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item m-auto">
+                    <a class="nav-link active" href="/home">ПОЧЕТНА</a>
+                </li>
+                <li class="nav-item m-auto">
+                    <a class="nav-link active" href="/info">ИНФОРМАЦИИ</a>
+                </li>
+                <li class="nav-item m-auto">
+                    <a class="nav-link active" href="/guide">УПАТСТВО</a>
+                </li>
+                <li class="nav-item m-auto">
+                    <a class="nav-link active" href="/listBooks">ЛИСТА НА КНИГИ</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+<form class="form-signin mt-xl-5" method="post" action="/listBooks">
+    <h2 class="form-signin-heading">Листа на книги</h2>
+    <p>
+        <label for="name" class="sr-only">Име на книга:</label>
+        <input type="text" id="name" name="bookName" class="form-control" placeholder="BookName" required="" autofocus="">
+    </p>
+    <p>
+        <label for="price" class="sr-only">Цена на книгата:</label>
+        <input type="number" id="price" name="bookPrice" class="form-control" placeholder="bookPrice" required="" autofocus="">
+    </p>
+    <p>
+        <label for="bookGenre" class="sr-only">Жанр на книга:</label>
+        <input type="text" id="bookGenre" name="bookGenre" class="form-control" placeholder="BookGenre" required="" autofocus="">
+    </p>
+    <p>
+        <label for="bookLibrary" class="sr-only">Библиотека во која се наоѓа книгата:</label>
+        <input type="text" id="bookLibrary" name="bookLibrary" class="form-control" placeholder="bookLibrary" required="" autofocus="">
+    </p>
+
+    <div th:if="${hasError}">
+        <div th:text="${error}" class="text-danger"></div>
+    </div>
+
+<div>
+    <table>
+        <tr>
+            <th>Book Name</th>
+            <th>Price</th>
+            <th>Price Late</th>
+            <th>Genre</th>
+            <th>Library</th>
+
+        </tr>
+        <!-- For each news you should have one <tr> like below -->
+        <tr class="item" th:each="book:${bookList}">
+            <td th:text="${book.bookName}">[book.bookName]</td>
+            <td th:text="${book.bookPrice}">[book.bookPrice]</td>
+            <td th:text="${book.bookPriceLate}">[book.bookPriceLate]</td>
+            <td th:text="${book.getGenreOfBook()}">[book.genreOfBook]</td>
+            <td th:text="${book.getLibraryOfBook()}">[book.libraryOfBook]</td>\
+
+        </tr>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Листа на книги</button>
+    </table>
+
+</div>
+
+</form>
+<footer class="text-black-50 mt-xl-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-lg-1 col-xl-5">
+                <h5>Contact</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-envelope mr-2"></i>onlinelibrary@library.com</li>
+                    <li><i class="fa fa-phone mr-2"></i> + 33 12 14 15 16</li>
+                    <li><i class="fa fa-print mr-2"></i> + 33 12 14 15 16</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
