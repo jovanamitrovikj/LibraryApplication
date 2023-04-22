@@ -6,11 +6,9 @@ import mk.ukim.finki.db.library.repository.BookRepository;
 import mk.ukim.finki.db.library.repository.GenreRepository;
 import mk.ukim.finki.db.library.repository.WriterRepository;
 import mk.ukim.finki.db.library.service.BookService;
-import mk.ukim.finki.db.library.service.LibraryService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -19,7 +17,7 @@ public class BookServiceImpl implements BookService {
     private final WriterRepository writerRepository;
     private final GenreRepository genreRepository;
 
-    public BookServiceImpl(BookRepository bookRepository, WriterRepository writerRepository, GenreRepository genreRepository, LibraryService libraryService) {
+    public BookServiceImpl(BookRepository bookRepository, WriterRepository writerRepository, GenreRepository genreRepository) {
         this.bookRepository = bookRepository;
         this.writerRepository = writerRepository;
         this.genreRepository = genreRepository;
@@ -36,11 +34,10 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book create(String bookName, int bookNumber, boolean isFree, int bookPrice, int bookPriceLate,
-                       BookGenre bookGenre, LibrariesEnum librariesEnum) { //, List<Long> genreIds, List<Long> writerIds
+    public Book create(String bookName, int bookNumber, boolean isFree, int bookPrice, int bookPriceLate) { //, List<Long> genreIds, List<Long> writerIds
         //List<Genre> genres = this.genreRepository.findAllById(genreIds);
         //List<Writer> writers = this.writerRepository.findAllById(writerIds);
-        Book book = new Book(bookName, bookNumber, isFree, bookPrice, bookPriceLate, bookGenre, librariesEnum); //, genres, writers
+        Book book = new Book(bookName, bookNumber, isFree, bookPrice, bookPriceLate); //, genres, writers
         return this.bookRepository.save(book);
     }
 
@@ -68,7 +65,6 @@ public class BookServiceImpl implements BookService {
         this.bookRepository.delete(book);
         return book;
     }
-
 
     //in bookRepository
     //TODO: listBooksByName, listBooksByNameAndGenre, listBooksByNameAndGenreAndWriter, listBooksByNameAndWriter

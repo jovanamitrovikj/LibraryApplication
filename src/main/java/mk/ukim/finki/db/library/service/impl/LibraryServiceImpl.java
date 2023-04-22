@@ -6,9 +6,6 @@ import mk.ukim.finki.db.library.repository.LibraryRepository;
 import mk.ukim.finki.db.library.service.LibraryService;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @Service
 public class LibraryServiceImpl implements LibraryService {
 
@@ -42,15 +39,5 @@ public class LibraryServiceImpl implements LibraryService {
         Library library = this.findById(id);
         this.libraryRepository.delete(library);
         return library;
-    }
-
-    @Override
-    public List<Library> listAll(){
-        return this.libraryRepository.findAll();
-    }
-
-    @Override
-    public String getName(){
-        return this.listAll().stream().filter(r-> Boolean.parseBoolean(r.getLibraryName())).toString();
     }
 }

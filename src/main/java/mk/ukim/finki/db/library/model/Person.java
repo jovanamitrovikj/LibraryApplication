@@ -24,10 +24,9 @@ public class Person {
 
     public Person(){ }
 
-    public Person(String name, String surname, Date birthDate, String address, String town, String phoneNumber, String email, String password) {
+    public Person(String name, String surname, String address, String town, String phoneNumber, String email, String password) {
         this.name = name;
         this.surname = surname;
-        this.birthDate = birthDate;
         this.address = address;
         this.town = town;
         this.phoneNumber = phoneNumber;

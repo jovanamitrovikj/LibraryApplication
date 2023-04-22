@@ -8,7 +8,7 @@ public interface LibraryService {
 
     Library findById(Long id);
 
-    List<Library> listAll();
+    //List<Library> listAll();
 
     Library create(String libraryName, String libraryCity);
 
@@ -16,5 +16,5 @@ public interface LibraryService {
 
     Library delete(Long id);
 
-    String getName();
+    //String getName();
 }

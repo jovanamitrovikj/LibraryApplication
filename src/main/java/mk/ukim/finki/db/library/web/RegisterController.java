@@ -34,15 +34,14 @@ public class RegisterController {
     @PostMapping
     public String register(@RequestParam String name,
                            @RequestParam String surname,
-                           @RequestParam Date birthDate,
                            @RequestParam String town,
                            @RequestParam String address,
                            @RequestParam String phoneNumber,
                            @RequestParam String email,
                            @RequestParam String password
-                           ) {
+    ) {
         try{
-            this.userService.register(name, surname, birthDate, town, address, phoneNumber, email, password);
+            this.userService.register(name, surname, town, address, phoneNumber, email, password);
             return "redirect:/login";
         } catch (InvalidArgumentsException | PasswordsDoNotMatchException exception) {
             return "redirect:/register?error=" + exception.getMessage();

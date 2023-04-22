@@ -8,47 +8,31 @@ public class Book {
 
     public Book(){}
 
-//    public Book(String bookName, int bookNumber, boolean isFree, int bookPrice, int bookPriceLate) {
-//        this.bookName = bookName;
-//        this.bookNumber = bookNumber;
-//        this.isFree = isFree;
-//        this.bookPrice = bookPrice;
-//        this.bookPriceLate = bookPriceLate;
-//    }
-
-//    public Book(String bookName, int bookNumber, boolean isFree, int bookPrice, int bookPriceLate, List<Genre> genres, List<Writer> writers
-//    , BookGenre bookGenre, LibrariesEnum librariesEnum) {
-//        this.bookName = bookName;
-//        this.bookNumber = bookNumber;
-//        this.isFree = isFree;
-//        this.bookPrice = bookPrice;
-//        this.bookPriceLate = bookPriceLate;
-//        this.genre = (Genre) genres;
-//        this.writers = writers;
-//        this.bookGenre = bookGenre;
-//        this.librariesEnum = librariesEnum;
-//    }
-//
-//    public Book(String bookName, int bookNumber, boolean isFree, int bookPrice, int bookPriceLate, List<Writer> writers
-//            , BookGenre bookGenre, LibrariesEnum librariesEnum) {
-//        this.bookName = bookName;
-//        this.bookNumber = bookNumber;
-//        this.isFree = isFree;
-//        this.bookPrice = bookPrice;
-//        this.bookPriceLate = bookPriceLate;
-//        this.writers = writers;
-//        this.bookGenre = bookGenre;
-//        this.librariesEnum = librariesEnum;
-//    }
-
-    public Book(String bookName, int bookNumber, boolean isFree, int bookPrice, int bookPriceLate, BookGenre bookGenre, LibrariesEnum librariesEnum) {
+    public Book(String bookName, int bookNumber, boolean isFree, int bookPrice, int bookPriceLate) {
         this.bookName = bookName;
         this.bookNumber = bookNumber;
         this.isFree = isFree;
         this.bookPrice = bookPrice;
         this.bookPriceLate = bookPriceLate;
-        this.bookGenre = bookGenre;
-        this.librariesEnum = librariesEnum;
+    }
+
+    public Book(String bookName, int bookNumber, boolean isFree, int bookPrice, int bookPriceLate, List<Genre> genres, List<Writer> writers) {
+        this.bookName = bookName;
+        this.bookNumber = bookNumber;
+        this.isFree = isFree;
+        this.bookPrice = bookPrice;
+        this.bookPriceLate = bookPriceLate;
+        this.genre = (Genre) genres;
+        this.writers = writers;
+    }
+
+    public Book(String bookName, int bookNumber, boolean isFree, int bookPrice, int bookPriceLate, Library library) {
+        this.bookName = bookName;
+        this.bookNumber = bookNumber;
+        this.isFree = isFree;
+        this.bookPrice = bookPrice;
+        this.bookPriceLate = bookPriceLate;
+        this.library = library;
     }
 
     @Id
@@ -64,12 +48,6 @@ public class Book {
     private int bookPrice;
 
     private int bookPriceLate;
-
-    @Enumerated
-    private BookGenre bookGenre;
-
-    @Enumerated
-    private LibrariesEnum librariesEnum;
 
     @ManyToOne
     private Library library;
@@ -115,10 +93,6 @@ public class Book {
     public int getBookNumber() {
         return bookNumber;
     }
-
-    public String getGenreOfBook(){return bookGenre.toString();}
-
-    public String getLibraryOfBook(){return librariesEnum.toString();}
 
     public void setBookNumber(int bookNumber) {
         bookNumber = bookNumber;
